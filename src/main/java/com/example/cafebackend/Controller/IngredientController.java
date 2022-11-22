@@ -1,0 +1,4 @@
+package com.example.cafebackend.Controller;
+
+public class IngredientController {
+}
