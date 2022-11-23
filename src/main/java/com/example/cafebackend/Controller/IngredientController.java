@@ -50,6 +50,4 @@ public class IngredientController {
         ingredientRepository.deleteAll();
         return new ResponseEntity<>("deleted all ingredient", HttpStatus.OK);
     }
-
-
 }
