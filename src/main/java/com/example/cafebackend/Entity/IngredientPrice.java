@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity(name = "IngredientPrice")
 @Getter
@@ -29,4 +30,6 @@ public class IngredientPrice {
 
     @Column(name = "date")
     private Date date;
+
+
 }

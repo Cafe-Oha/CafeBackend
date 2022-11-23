@@ -26,4 +26,11 @@ public class Ingredient {
     @Column(name = "unit")
     private String unit;
 
+    @Column(name = "quantity")
+    private String quantity;
+
+    @OneToMany
+    @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
+    private List<IngredientPrice> ingredientPrice;
+
 }
