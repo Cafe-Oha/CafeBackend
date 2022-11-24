@@ -44,5 +44,4 @@ public class IngredientPriceController {
     public ResponseEntity<String> deleteIngredientPrice(@PathVariable("id") Long id){
         ingredientPriceRepository.deleteById(id);
         return new ResponseEntity<>("deleted ingredient", HttpStatus.OK);    }
-
 }
