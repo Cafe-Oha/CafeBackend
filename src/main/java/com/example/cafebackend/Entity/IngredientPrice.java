@@ -1,13 +1,16 @@
 package com.example.cafebackend.Entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
-import java.util.List;
+
 
 @Entity(name = "IngredientPrice")
 @Getter
@@ -23,13 +26,19 @@ public class IngredientPrice {
     private Long id;
 
     @Column(name = "sell_price")
-    private Double sellPrice;
+    private double sellPrice;
 
     @Column(name = "buy_price")
-    private Double buyPrice;
+    private double buyPrice;
 
     @Column(name = "date")
-    private Date date;
+    @DateTimeFormat(pattern = "yyyy/MM/dd")
+    private LocalDate date;
 
+    public IngredientPrice(double sellPrice, double buyPrice, LocalDate date) {
+        this.sellPrice = sellPrice;
+        this.buyPrice = buyPrice;
+        this.date = date;
 
+    }
 }

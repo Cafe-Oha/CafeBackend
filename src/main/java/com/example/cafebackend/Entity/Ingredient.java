@@ -27,10 +27,15 @@ public class Ingredient {
     private String unit;
 
     @Column(name = "quantity")
-    private String quantity;
+    private Double quantity;
 
     @OneToMany
     @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
     private List<IngredientPrice> ingredientPrice;
 
+    public Ingredient(String name, String unit, Double quantity) {
+        this.name = name;
+        this.unit = unit;
+        this.quantity = quantity;
+    }
 }
