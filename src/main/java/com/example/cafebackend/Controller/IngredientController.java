@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "/ingredients")
+@CrossOrigin
 public class IngredientController {
 
     @Autowired

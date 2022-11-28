@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/ingredients/price")
+@CrossOrigin
 public class IngredientPriceController {
 
     @Autowired
