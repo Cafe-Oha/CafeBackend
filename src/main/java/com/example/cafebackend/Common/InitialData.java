@@ -50,6 +50,7 @@ public class InitialData implements CommandLineRunner {
      User user1 = new User("Anjellie", "?", "Admin");
      User user2 = new User("Sajeta", "password", "Staff");
 
+
      userRepository.save(user1);
      userRepository.save(user2);
 
