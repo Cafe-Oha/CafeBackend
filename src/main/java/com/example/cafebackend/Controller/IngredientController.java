@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,9 +42,25 @@ public class IngredientController {
         return new ResponseEntity<>("updated ingredient", HttpStatus.OK);
     }
 
+    @PutMapping("/edit/{name}")
+    public ResponseEntity<String> updateIngredient(@PathVariable("name") String name, @RequestBody Ingredient ingredient){
+        Ingredient ing = ingredientRepository.findByName(name);
+        ing.setName(ingredient.getName());
+        ing.setUnit(ingredient.getUnit());
+        ing.setQuantity(ingredient.getQuantity());
+        ingredientRepository.save(ing);
+        return new ResponseEntity<>("updated ingredient", HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteIngredient(@PathVariable("id") Long id){
         ingredientRepository.deleteById(id);
+        return new ResponseEntity<>("deleted ingredient", HttpStatus.OK);
+    }
+    @DeleteMapping("/delete/{name}")
+    @Transactional
+    public ResponseEntity<String> deleteIngredientByName(@PathVariable("name") String name){
+        ingredientRepository.deleteByName(name);
         return new ResponseEntity<>("deleted ingredient", HttpStatus.OK);
     }
     @DeleteMapping()
