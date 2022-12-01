@@ -1,6 +1,9 @@
 package com.example.cafebackend.Entity;
 
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,7 +13,6 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class Ingredient {
 
     @Id
@@ -31,7 +33,7 @@ public class Ingredient {
     @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
     private List<IngredientPrice> ingredientPrice;
 
-    public Ingredient(String name,Double quantity, String unit) {
+    public Ingredient(String name, String unit, Double quantity) {
         this.name = name;
         this.unit = unit;
         this.quantity = quantity;

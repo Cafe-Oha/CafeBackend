@@ -17,15 +17,16 @@ public class User {
     @Column(name = "id")
     private Long id;
 
-//    @Column(name = "username")
-//    private String username;
+
+   // @Column(name = "username")
+   // private String username;
 
     @Column(name = "password")
     private String password;
 
     @Column(name = "role")
     private String role;
-
+    
     @Column(name = "is_logged_in")
     private Boolean isLoggedIn;
 
