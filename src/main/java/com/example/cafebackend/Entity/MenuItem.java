@@ -26,8 +26,6 @@ public class MenuItem {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "item")
-    private String item;
 
     @Column(length = 6000)
     private String instruction;
@@ -36,9 +34,8 @@ public class MenuItem {
     @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
     private List<IngredientPrice> ingredientPrice;
 
-    public MenuItem(String name, String item, String instruction) {
+    public MenuItem(String name,  String instruction) {
         this.name = name;
-        this.item = item;
         this.instruction = instruction;
     }
 }

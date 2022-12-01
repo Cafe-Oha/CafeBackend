@@ -71,26 +71,50 @@ public class InitialData implements CommandLineRunner {
      ingredientPriceRepository.save(ingredientPrice5);
 
 
-        MenuItem humus = new MenuItem("Humus","Humus", "");
-        MenuItem jackfruitAdobo = new MenuItem("Jackfruit Adobo","Jackfruit Adobo",
+        MenuItem humus = new MenuItem("Humus", "");
+        MenuItem jackfruitAdobo = new MenuItem("Jackfruit Adobo","Instructions\n" +
                 "1. Fry the garlic in the oil until the garlic becomes light brown \n" +
                 "2. Add the soy sauce, vinegar and sugar to the pot. Move until the sugar dissolves completely \n" +
                 "3. Add the jackfruit that has already drained .\n" +
                 "4. let the jackfruit boil and absorb the sauce. \n" +
                 "5. Move with spoon to obtain shredded jackfruit. Pack in boxes with date and stickers with its name \"adobo\"");
-        MenuItem tuna = new MenuItem("Tuna","Tuna", "");
-        MenuItem tunaVegan = new MenuItem("Tuna Vegan","Vegan Tuna",
+        MenuItem tuna = new MenuItem("Tuna","");
+        MenuItem tunaVegan = new MenuItem("Tuna Vegan","Instructions\n" +
                 "1. Drain the artichokes, prechop the basilicum\n" +
                         "2. In the big food processor put all the ingredientes and process until you have a nice mouse consistency.\n" +
                         "3. Pack in plastic 1 litre boxes and tag with the doate and \"vegan tuna\"");
-        MenuItem burgerPaddy = new MenuItem("Burger Paddy","Burger Paddy", "Put some checkpea into");
-        MenuItem caramalizedOnions = new MenuItem("Caramelized Onions","caramel", "Put some checkpea into");
-        MenuItem pickledOnions = new MenuItem("Pickled Onions","onions", "Put some checkpea into");
-        MenuItem roastedPortabelloMushrooms = new MenuItem("Roasted Portabello Mushrooms","mushrooms","Put some checkpea into");
-        MenuItem pickledCucumber = new MenuItem("Pickled Cucumber","cucumber","Put some checkpea into");
-        MenuItem pesto = new MenuItem("Pesto","pesto", "Put some checkpea into");
-        MenuItem crispFishPaddy = new MenuItem("Crisp Fish Paddy","fish",  "Put some checkpea into");
-        MenuItem creamyCoconutLentilCurry = new MenuItem("Creamy Coconut Lentil Curry","lentil", "Put some checkpea into");
+        MenuItem burgerPaddy = new MenuItem("Burger Paddy", "Instructions\n" +
+                "1. Toss first 4 ingredients in oil salt and pepper\n" +
+                "2. Roast at 200 degrees for 10-15 min\n" +
+                "3. when cool chop fine\n" +
+                "4. Combine all in mixer and mix on high fir 8-10 minutes\n" +
+                "5. Make pattys and put them on oiled gastropans\n" +
+                "6. Bake at 180 degrees for 10 minutes\n" +
+                "7. Cool and freeze");
+        MenuItem caramalizedOnions = new MenuItem("Caramelized Onions", "Put some checkpea into");
+        MenuItem pickledOnions = new MenuItem("Pickled Onions", "Instructions\n" +
+                "1. Slice all cucumbers\n" +
+                "2. Boil all ingredients.\n" +
+                "3. seperate cucumber and devide in 4  5L containers\n" +
+                "4. Cover the cucmber with liquid and let cool\n" +
+                "5. Mark with date");
+        MenuItem roastedPortabelloMushrooms = new MenuItem("Roasted Portabello Mushrooms","Put some checkpea into");
+        MenuItem pickledCucumber = new MenuItem("Pickled Cucumber","Put some checkpea into");
+        MenuItem pesto = new MenuItem("Pesto","Instructions\n" +
+                "1. Process everything but the oil in the big food processor until you have a paste.\n" +
+                "2. Add the oil little by little to obtain a uniform pesto.");
+        MenuItem crispFishPaddy = new MenuItem("Crisp Fish Paddy", "\tInstructions\n" +
+                "1\tSlice the fish 45*angle and 1 cm filets\n" +
+                "2\tMix flour with 2 tsp salt and the pepper \n" +
+                "3\tFlour the fish filets\n" +
+                "4\tEgg the fish filets one by one draining excess and immediately  cover with bred crumbs.\n" +
+                "5\tArrange the breaded filets in a freezer container with oven paper squares separating individual filets.");
+        MenuItem creamyCoconutLentilCurry = new MenuItem("Creamy Coconut Lentil Curry", "Instructions \n" +
+                "1. Heat the oil in a big pot add the cummin seeds, then and fry the garlic, then add the ginger and let fry for 3 min, then add the onion and let become transparent.\n" +
+                "2. Add the chopped tomatoes mix and let fry for some minutes, then add the lentils, the coriander  and the water. Let it boil and slow down the heat putting the pot on the rack over the stove.\n" +
+                "3. When lentils are cooked add the spices mix well and let boil for 5 minutes.\n" +
+                "4. Add the coconut milk, mix and let it get warm.\n" +
+                "5. Pack in 1 litre plastic boxes, add the stickers with date and identification like lentils.");
 
         menuItemRepository.save(humus);
         menuItemRepository.save(tuna);
