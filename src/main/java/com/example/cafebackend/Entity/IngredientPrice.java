@@ -35,10 +35,19 @@ public class IngredientPrice {
     @DateTimeFormat(pattern = "yyyy/MM/dd")
     private LocalDate date;
 
+    @ManyToOne
+    private Ingredient ingredient;
+
     public IngredientPrice(double sellPrice, double buyPrice, LocalDate date) {
         this.sellPrice = sellPrice;
         this.buyPrice = buyPrice;
         this.date = date;
+    }
 
+    public IngredientPrice(double sellPrice, double buyPrice, LocalDate date, Ingredient ingredient) {
+        this.sellPrice = sellPrice;
+        this.buyPrice = buyPrice;
+        this.date = date;
+        this.ingredient = ingredient;
     }
 }

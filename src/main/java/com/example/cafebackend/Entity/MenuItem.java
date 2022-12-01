@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -14,7 +15,7 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-@Table(name = "menuItem")
+@Table(name = "menu_item")
 public class MenuItem {
 
 
@@ -26,19 +27,20 @@ public class MenuItem {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "item")
-    private String item;
-
     @Column(length = 6000)
     private String instruction;
 
-    @OneToMany
-    @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
-    private List<IngredientPrice> ingredientPrice;
+    @ManyToMany
+    @JoinTable(
+            name="ingredients_recipe",
+            joinColumns = @JoinColumn(name = "menu_item_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private Set<Ingredient> ingredients;
 
-    public MenuItem(String name, String item, String instruction) {
+    public MenuItem(String name, String instruction, Set<Ingredient> ingredients) {
         this.name = name;
-        this.item = item;
         this.instruction = instruction;
+        this.ingredients = ingredients;
     }
 }

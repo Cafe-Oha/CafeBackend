@@ -7,6 +7,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -30,9 +31,10 @@ public class Ingredient {
     private Double quantity;
 
     @OneToMany
-    @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
     private List<IngredientPrice> ingredientPrice;
 
+    @ManyToMany(mappedBy = "ingredients")
+    private Set<MenuItem> menuItems;
     public Ingredient(String name, String unit, Double quantity) {
         this.name = name;
         this.unit = unit;
