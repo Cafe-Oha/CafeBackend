@@ -32,6 +32,7 @@ public class Ingredient {
     private Double quantity;
 
     @OneToMany
+    @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
     private List<IngredientPrice> ingredientPrice;
 
     @JsonIgnore
