@@ -1,19 +1,13 @@
 package com.example.cafebackend.Common;
 
-import com.example.cafebackend.Entity.Ingredient;
-import com.example.cafebackend.Entity.IngredientPrice;
-import com.example.cafebackend.Entity.MenuItem;
-import com.example.cafebackend.Entity.User;
-import com.example.cafebackend.Repository.IngredientPriceRepository;
-import com.example.cafebackend.Repository.IngredientRepository;
-import com.example.cafebackend.Repository.MenuItemRepository;
-import com.example.cafebackend.Repository.UserRepository;
+import com.example.cafebackend.Entity.*;
+import com.example.cafebackend.Repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
-//@Component
+@Component
 public class InitialData implements CommandLineRunner {
 
     IngredientRepository ingredientRepository;
@@ -24,65 +18,69 @@ public class InitialData implements CommandLineRunner {
 
     MenuItemRepository menuItemRepository;
 
+    MainMenuItemRepository mainMenuItemRepository;
 
-    public InitialData(IngredientRepository ingredientRepository, IngredientPriceRepository ingredientPriceRepository, UserRepository userRepository, MenuItemRepository menuItemRepository) {
+
+    public InitialData(IngredientRepository ingredientRepository, IngredientPriceRepository ingredientPriceRepository,
+                       UserRepository userRepository, MenuItemRepository menuItemRepository, MainMenuItemRepository mainMenuItemRepository) {
         this.ingredientRepository = ingredientRepository;
         this.ingredientPriceRepository = ingredientPriceRepository;
         this.userRepository = userRepository;
         this.menuItemRepository = menuItemRepository;
+        this.mainMenuItemRepository = mainMenuItemRepository;
     }
 
 
     @Override
     public void run(String... args) throws Exception {
-     Ingredient ingredient1 = new Ingredient("Abocado", "kg", 12.0);
-     Ingredient ingredient2 = new Ingredient("Rice", "kg", 100.0);
-     Ingredient ingredient3 = new Ingredient("Carrot", "kg", 18.0);
-     Ingredient ingredient4 = new Ingredient("Orange", "kg", 150.0);
-     Ingredient ingredient5 = new Ingredient("Spinach", "kg", 9.0);
-     Ingredient ingredient6 = new Ingredient("Bread", "pcs", 10.0);
+        Ingredient ingredient1 = new Ingredient("Abocado", "kg", 12.0);
+        Ingredient ingredient2 = new Ingredient("Rice", "kg", 100.0);
+        Ingredient ingredient3 = new Ingredient("Carrot", "kg", 18.0);
+        Ingredient ingredient4 = new Ingredient("Orange", "kg", 150.0);
+        Ingredient ingredient5 = new Ingredient("Spinach", "kg", 9.0);
+        Ingredient ingredient6 = new Ingredient("Bread", "pcs", 10.0);
 
 
-     ingredientRepository.save(ingredient1);
-     ingredientRepository.save(ingredient2);
-     ingredientRepository.save(ingredient3);
-     ingredientRepository.save(ingredient4);
-     ingredientRepository.save(ingredient5);
-     ingredientRepository.save(ingredient6);
+        ingredientRepository.save(ingredient1);
+        ingredientRepository.save(ingredient2);
+        ingredientRepository.save(ingredient3);
+        ingredientRepository.save(ingredient4);
+        ingredientRepository.save(ingredient5);
+        ingredientRepository.save(ingredient6);
 
 
-     User user1 = new User("Anjellie", "?", "Admin");
-     User user2 = new User("Sajeta", "password", "Staff");
+        User user1 = new User("Anjellie", "?", "Admin");
+        User user2 = new User("Sajeta", "password", "Staff");
 
 
-     userRepository.save(user1);
-     userRepository.save(user2);
+        userRepository.save(user1);
+        userRepository.save(user2);
 
-     IngredientPrice ingredientPrice1 =new IngredientPrice(55.5, 10.5, LocalDate.of(2022,11,25));
-     IngredientPrice ingredientPrice2 =new IngredientPrice(10.5, 7.5, LocalDate.of(2022,11,22));
-     IngredientPrice ingredientPrice3 =new IngredientPrice(50.0, 17.5, LocalDate.of(2022,11,20));
-     IngredientPrice ingredientPrice4 =new IngredientPrice(15.5, 15.5, LocalDate.of(2022,11,21));
-     IngredientPrice ingredientPrice5 =new IngredientPrice(35.5, 10.0, LocalDate.of(2022,11,24));
+        IngredientPrice ingredientPrice1 = new IngredientPrice(55.5, 10.5, LocalDate.of(2022, 11, 25));
+        IngredientPrice ingredientPrice2 = new IngredientPrice(10.5, 7.5, LocalDate.of(2022, 11, 22));
+        IngredientPrice ingredientPrice3 = new IngredientPrice(50.0, 17.5, LocalDate.of(2022, 11, 20));
+        IngredientPrice ingredientPrice4 = new IngredientPrice(15.5, 15.5, LocalDate.of(2022, 11, 21));
+        IngredientPrice ingredientPrice5 = new IngredientPrice(35.5, 10.0, LocalDate.of(2022, 11, 24));
 
-     ingredientPriceRepository.save(ingredientPrice1);
-     ingredientPriceRepository.save(ingredientPrice2);
-     ingredientPriceRepository.save(ingredientPrice3);
-     ingredientPriceRepository.save(ingredientPrice4);
-     ingredientPriceRepository.save(ingredientPrice5);
+        ingredientPriceRepository.save(ingredientPrice1);
+        ingredientPriceRepository.save(ingredientPrice2);
+        ingredientPriceRepository.save(ingredientPrice3);
+        ingredientPriceRepository.save(ingredientPrice4);
+        ingredientPriceRepository.save(ingredientPrice5);
 
 
         MenuItem humus = new MenuItem("Humus", "");
-        MenuItem jackfruitAdobo = new MenuItem("Jackfruit Adobo","Instructions\n" +
+        MenuItem jackfruitAdobo = new MenuItem("Jackfruit Adobo", "Instructions\n" +
                 "1. Fry the garlic in the oil until the garlic becomes light brown \n" +
                 "2. Add the soy sauce, vinegar and sugar to the pot. Move until the sugar dissolves completely \n" +
                 "3. Add the jackfruit that has already drained .\n" +
                 "4. let the jackfruit boil and absorb the sauce. \n" +
                 "5. Move with spoon to obtain shredded jackfruit. Pack in boxes with date and stickers with its name \"adobo\"");
-        MenuItem tuna = new MenuItem("Tuna","");
-        MenuItem tunaVegan = new MenuItem("Tuna Vegan","Instructions\n" +
+        MenuItem tuna = new MenuItem("Tuna", "");
+        MenuItem tunaVegan = new MenuItem("Tuna Vegan", "Instructions\n" +
                 "1. Drain the artichokes, prechop the basilicum\n" +
-                        "2. In the big food processor put all the ingredientes and process until you have a nice mouse consistency.\n" +
-                        "3. Pack in plastic 1 litre boxes and tag with the doate and \"vegan tuna\"");
+                "2. In the big food processor put all the ingredientes and process until you have a nice mouse consistency.\n" +
+                "3. Pack in plastic 1 litre boxes and tag with the doate and \"vegan tuna\"");
         MenuItem burgerPaddy = new MenuItem("Burger Paddy", "Instructions\n" +
                 "1. Toss first 4 ingredients in oil salt and pepper\n" +
                 "2. Roast at 200 degrees for 10-15 min\n" +
@@ -98,9 +96,9 @@ public class InitialData implements CommandLineRunner {
                 "3. seperate cucumber and devide in 4  5L containers\n" +
                 "4. Cover the cucmber with liquid and let cool\n" +
                 "5. Mark with date");
-        MenuItem roastedPortabelloMushrooms = new MenuItem("Roasted Portabello Mushrooms","Put some checkpea into");
-        MenuItem pickledCucumber = new MenuItem("Pickled Cucumber","Put some checkpea into");
-        MenuItem pesto = new MenuItem("Pesto","Instructions\n" +
+        MenuItem roastedPortabelloMushrooms = new MenuItem("Roasted Portabello Mushrooms", "Put some checkpea into");
+        MenuItem pickledCucumber = new MenuItem("Pickled Cucumber", "Put some checkpea into");
+        MenuItem pesto = new MenuItem("Pesto", "Instructions\n" +
                 "1. Process everything but the oil in the big food processor until you have a paste.\n" +
                 "2. Add the oil little by little to obtain a uniform pesto.");
         MenuItem crispFishPaddy = new MenuItem("Crisp Fish Paddy", "\tInstructions\n" +
@@ -128,5 +126,19 @@ public class InitialData implements CommandLineRunner {
         menuItemRepository.save(pesto);
         menuItemRepository.save(crispFishPaddy);
         menuItemRepository.save(creamyCoconutLentilCurry);
+
+
+        MainMenuItem fishBurger = new MainMenuItem("Fish Burger", "It need to be ");
+        MainMenuItem pokeBowl = new MainMenuItem("PokeBowl", "It need to be ");
+        MainMenuItem tunaSandwich = new MainMenuItem("Tuna Sandwich", "It need to be ");
+        MainMenuItem veganSandwich = new MainMenuItem("Vegan Sandwich", "It need to be ");
+        MainMenuItem veganBurger = new MainMenuItem("Vegan Burger", "It need to be ");
+
+        mainMenuItemRepository.save(fishBurger);
+        mainMenuItemRepository.save(pokeBowl);
+        mainMenuItemRepository.save(tunaSandwich);
+        mainMenuItemRepository.save(veganSandwich);
+        mainMenuItemRepository.save(veganBurger);
+
     }
 }
