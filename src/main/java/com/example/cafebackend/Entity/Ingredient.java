@@ -7,6 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -35,12 +36,13 @@ public class Ingredient {
     @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
     private List<IngredientPrice> ingredientPrice;
 
+    @ManyToMany (mappedBy = "menuIngredients")
     @JsonIgnore
-    @ManyToMany(mappedBy = "ingredients")
-    private Set<MenuItem> menuItems;
+    private Set<MenuItem> menuItems = new HashSet<>();
     public Ingredient(String name, String unit, Double quantity) {
         this.name = name;
         this.unit = unit;
         this.quantity = quantity;
     }
+
 }

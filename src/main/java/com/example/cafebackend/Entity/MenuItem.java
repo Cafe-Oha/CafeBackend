@@ -7,7 +7,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -32,17 +32,16 @@ public class MenuItem {
     private String instruction;
 
     @ManyToMany
-    @JsonIgnore
     @JoinTable(
-            name="ingredients_recipe",
+            name = "menu_ingredients",
             joinColumns = @JoinColumn(name = "menu_item_id"),
             inverseJoinColumns = @JoinColumn(name = "ingredient_id")
     )
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> menuIngredients = new HashSet<>();
 
-    public MenuItem(String name, String instruction, Set<Ingredient> ingredients) {
+    public MenuItem(String name, String instruction, Set<Ingredient> menuIngredients) {
         this.name = name;
         this.instruction = instruction;
-        this.ingredients = ingredients;
+        this.menuIngredients = menuIngredients;
     }
 }
