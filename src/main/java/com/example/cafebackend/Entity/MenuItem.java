@@ -31,6 +31,11 @@ public class MenuItem {
     @Column(length = 6000)
     private String instruction;
 
+
+    @JsonIgnore
+    @OneToMany(mappedBy="menuItem")
+    private Set<MenuItemSell> menuItemSell = new HashSet<>();
+
     @ManyToMany
     @JoinTable(
             name = "menu_ingredients",

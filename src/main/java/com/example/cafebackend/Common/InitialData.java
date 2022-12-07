@@ -60,11 +60,11 @@ public class InitialData implements CommandLineRunner {
         userRepository.save(user1);
         userRepository.save(user2);
 
-        IngredientPrice ingredientPrice1 =new IngredientPrice(55.5, 10.5, LocalDate.of(2022,11,25),ingredient1);
-        IngredientPrice ingredientPrice2 =new IngredientPrice(10.5, 7.5, LocalDate.of(2022,11,22),ingredient2);
-        IngredientPrice ingredientPrice3 =new IngredientPrice(50.0, 17.5, LocalDate.of(2022,11,20));
-        IngredientPrice ingredientPrice4 =new IngredientPrice(15.5, 15.5, LocalDate.of(2022,11,21));
-        IngredientPrice ingredientPrice5 =new IngredientPrice(35.5, 10.0, LocalDate.of(2022,11,24));
+        IngredientPrice ingredientPrice1 =new IngredientPrice( 10.5, LocalDate.of(2022,11,25),ingredient1);
+        IngredientPrice ingredientPrice2 =new IngredientPrice( 7.5, LocalDate.of(2022,11,22),ingredient2);
+        IngredientPrice ingredientPrice3 =new IngredientPrice( 17.5, LocalDate.of(2022,11,20));
+        IngredientPrice ingredientPrice4 =new IngredientPrice( 15.5, LocalDate.of(2022,11,21));
+        IngredientPrice ingredientPrice5 =new IngredientPrice( 10.0, LocalDate.of(2022,11,24));
 
         ingredientPriceRepository.save(ingredientPrice1);
         ingredientPriceRepository.save(ingredientPrice2);

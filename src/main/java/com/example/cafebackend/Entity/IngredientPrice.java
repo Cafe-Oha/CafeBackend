@@ -25,8 +25,8 @@ public class IngredientPrice {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "sell_price")
-    private double sellPrice;
+//    @Column(name = "sell_price")
+//    private double sellPrice;
 
     @Column(name = "buy_price")
     private double buyPrice;
@@ -39,14 +39,12 @@ public class IngredientPrice {
     @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
     private Ingredient ingredient;
 
-    public IngredientPrice(double sellPrice, double buyPrice, LocalDate date) {
-        this.sellPrice = sellPrice;
+    public IngredientPrice( double buyPrice, LocalDate date) {
         this.buyPrice = buyPrice;
         this.date = date;
     }
 
-    public IngredientPrice(double sellPrice, double buyPrice, LocalDate date, Ingredient ingredient) {
-        this.sellPrice = sellPrice;
+    public IngredientPrice( double buyPrice, LocalDate date, Ingredient ingredient) {
         this.buyPrice = buyPrice;
         this.date = date;
         this.ingredient = ingredient;
