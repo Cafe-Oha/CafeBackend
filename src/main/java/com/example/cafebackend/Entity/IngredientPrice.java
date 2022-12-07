@@ -36,6 +36,7 @@ public class IngredientPrice {
     private LocalDate date;
 
     @ManyToOne
+    @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
     private Ingredient ingredient;
 
     public IngredientPrice(double sellPrice, double buyPrice, LocalDate date) {
