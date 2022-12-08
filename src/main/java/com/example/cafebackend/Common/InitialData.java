@@ -49,7 +49,7 @@ public class InitialData implements CommandLineRunner {
         ingredientRepository.save(ingredient6);
 
 
-        User user1 = new User("Anjellie", "pass", "admin",true);
+        User user1 = new User("Anjellie", "pass", "admin",false);
         User user2 = new User("Sajeta", "password", "staff",false);
 
 
