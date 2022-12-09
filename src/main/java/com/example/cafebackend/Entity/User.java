@@ -27,9 +27,9 @@ public class User {
     private String role;
     
     @Column(name = "is_logged_in")
-    private Boolean isLoggedIn;
+    private boolean isLoggedIn;
 
-    public User(String username, String password, String role) {
+    public User(String username, String password, String role,boolean isLoggedIn) {
         this.username = username;
         this.password = password;
         this.role = role;
