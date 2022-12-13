@@ -20,7 +20,7 @@ public class LoginController {
     public List<User> getUsers(){
         return userRepository.findAll();
     }
-    @PutMapping("/user/{id}")
+    @PutMapping("/users/{id}")
     public ResponseEntity<String> editUser(@PathVariable("id") Long id, @RequestBody User user){
         user.setId(id);
         userRepository.save(user);

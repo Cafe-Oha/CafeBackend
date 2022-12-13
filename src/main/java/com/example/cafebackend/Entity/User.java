@@ -27,12 +27,13 @@ public class User {
     private String role;
     
     @Column(name = "is_logged_in")
-    private boolean isLoggedIn;
+    private boolean loggedIn;
 
-    public User(String username, String password, String role,boolean isLoggedIn) {
+    public User(String username, String password, String role,boolean loggedIn) {
         this.username = username;
         this.password = password;
         this.role = role;
+        this.loggedIn = loggedIn;
     }
 
 }
