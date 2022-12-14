@@ -1,5 +1,6 @@
 package com.example.cafebackend.Controller;
 
+import com.example.cafebackend.Entity.MenuItem;
 import com.example.cafebackend.Entity.User;
 import com.example.cafebackend.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ public class LoginController {
     public List<User> getUsers(){
         return userRepository.findAll();
     }
+
+
     @PutMapping("/user/{id}")
     public ResponseEntity<String> editUser(@PathVariable("id") Long id, @RequestBody User user){
         user.setId(id);

@@ -6,8 +6,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
-//@Component
+@Component
 public class InitialData implements CommandLineRunner {
 
     IngredientRepository ingredientRepository;
@@ -49,6 +51,17 @@ public class InitialData implements CommandLineRunner {
         ingredientRepository.save(ingredient6);
 
 
+        Set<Ingredient> set = new HashSet<>();
+        set.add(ingredient1);
+        set.add(ingredient2);
+        set.add(ingredient3);
+        set.add(ingredient4);
+        Set<Ingredient> set2 = new HashSet<>();
+        set2.add(ingredient3);
+        set2.add(ingredient5);
+        set2.add(ingredient6);
+
+
         User user1 = new User("Anjellie", "?", "Admin");
         User user2 = new User("Sajeta", "password", "Staff");
 
@@ -69,19 +82,19 @@ public class InitialData implements CommandLineRunner {
         ingredientPriceRepository.save(ingredientPrice5);
 
 
-        MenuItem humus = new MenuItem("Humus", "");
-        MenuItem jackfruitAdobo = new MenuItem("Jackfruit Adobo", "Instructions\n" +
+        MenuItem humus = new MenuItem("Humus", "", set);
+        MenuItem jackfruitAdobo = new MenuItem("Jackfruit Adobo",
                 "1. Fry the garlic in the oil until the garlic becomes light brown \n" +
                 "2. Add the soy sauce, vinegar and sugar to the pot. Move until the sugar dissolves completely \n" +
                 "3. Add the jackfruit that has already drained .\n" +
                 "4. let the jackfruit boil and absorb the sauce. \n" +
                 "5. Move with spoon to obtain shredded jackfruit. Pack in boxes with date and stickers with its name \"adobo\"");
-        MenuItem tuna = new MenuItem("Tuna", "");
-        MenuItem tunaVegan = new MenuItem("Tuna Vegan", "Instructions\n" +
+        MenuItem tuna = new MenuItem("Tuna", "",set2);
+        MenuItem tunaVegan = new MenuItem("Tuna Vegan",
                 "1. Drain the artichokes, prechop the basilicum\n" +
                 "2. In the big food processor put all the ingredientes and process until you have a nice mouse consistency.\n" +
                 "3. Pack in plastic 1 litre boxes and tag with the doate and \"vegan tuna\"");
-        MenuItem burgerPaddy = new MenuItem("Burger Paddy", "Instructions\n" +
+        MenuItem burgerPaddy = new MenuItem("Burger Paddy",
                 "1. Toss first 4 ingredients in oil salt and pepper\n" +
                 "2. Roast at 200 degrees for 10-15 min\n" +
                 "3. when cool chop fine\n" +
@@ -95,7 +108,7 @@ public class InitialData implements CommandLineRunner {
                 "2. Boil all ingredients.\n" +
                 "3. seperate cucumber and devide in 4  5L containers\n" +
                 "4. Cover the cucmber with liquid and let cool\n" +
-                "5. Mark with date");
+                "5. Mark with date",set2);
         MenuItem roastedPortabelloMushrooms = new MenuItem("Roasted Portabello Mushrooms", "Put some checkpea into");
         MenuItem pickledCucumber = new MenuItem("Pickled Cucumber", "Put some checkpea into");
         MenuItem pesto = new MenuItem("Pesto", "Instructions\n" +
@@ -107,12 +120,12 @@ public class InitialData implements CommandLineRunner {
                 "3\tFlour the fish filets\n" +
                 "4\tEgg the fish filets one by one draining excess and immediately  cover with bred crumbs.\n" +
                 "5\tArrange the breaded filets in a freezer container with oven paper squares separating individual filets.");
-        MenuItem creamyCoconutLentilCurry = new MenuItem("Creamy Coconut Lentil Curry", "Instructions \n" +
+        MenuItem creamyCoconutLentilCurry = new MenuItem("Creamy Coconut Lentil Curry",
                 "1. Heat the oil in a big pot add the cummin seeds, then and fry the garlic, then add the ginger and let fry for 3 min, then add the onion and let become transparent.\n" +
                 "2. Add the chopped tomatoes mix and let fry for some minutes, then add the lentils, the coriander  and the water. Let it boil and slow down the heat putting the pot on the rack over the stove.\n" +
                 "3. When lentils are cooked add the spices mix well and let boil for 5 minutes.\n" +
                 "4. Add the coconut milk, mix and let it get warm.\n" +
-                "5. Pack in 1 litre plastic boxes, add the stickers with date and identification like lentils.");
+                "5. Pack in 1 litre plastic boxes, add the stickers with date and identification like lentils.",set2);
 
         menuItemRepository.save(humus);
         menuItemRepository.save(tuna);

@@ -6,7 +6,9 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -30,12 +32,21 @@ public class MenuItem {
     @Column(length = 6000)
     private String instruction;
 
-    @OneToMany
-    @JoinColumn(name = "fk_ingredient_id", referencedColumnName = "id")
-    private List<IngredientPrice> ingredientPrice;
+    @ManyToMany
+    @JoinTable(
+            name = "menu_ingredients",
+            joinColumns = @JoinColumn(name = "menu_item_id"),
+            inverseJoinColumns = @JoinColumn(name = "ingredient_id")
+    )
+    private Set<Ingredient> menuIngredients = new HashSet<>();
 
     public MenuItem(String name,  String instruction) {
         this.name = name;
         this.instruction = instruction;
+    }
+    public MenuItem(String name, String instruction, Set<Ingredient> menuIngredients) {
+        this.name = name;
+        this.instruction = instruction;
+        this.menuIngredients = menuIngredients;
     }
 }
