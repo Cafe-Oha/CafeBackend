@@ -22,7 +22,7 @@ public class MenuItemSell {
     private Long id;
 
     @Column(name = "sell_price")
-    private double sellPrice;
+    private int sellPrice;
 
     @Column(name = "date")
     private LocalDate date;
